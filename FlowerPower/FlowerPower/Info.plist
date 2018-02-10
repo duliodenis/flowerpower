@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We will be using your camera to let you know what type of flower you are looking at.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We will be using the photos you select to let you know what type of flower is in the picture.</string>
 </dict>
 </plist>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C5CB6A1202E86C800722B67 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 6C5CB6A0202E86C800722B67 /* FlowerClassifier.mlmodel */; };
 		6C7051CD202D3CF300B0D122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7051CC202D3CF300B0D122 /* AppDelegate.swift */; };
 		6C7051D2202D3CF300B0D122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7051D0202D3CF300B0D122 /* Main.storyboard */; };
 		6C7051D4202D3CF300B0D122 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7051D3202D3CF300B0D122 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C5CB6A0202E86C800722B67 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		6C7051C9202D3CF300B0D122 /* FlowerPower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlowerPower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7051CC202D3CF300B0D122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7051D1202D3CF300B0D122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				6C7051D3202D3CF300B0D122 /* Assets.xcassets */,
 				6C7051D5202D3CF300B0D122 /* LaunchScreen.storyboard */,
 				6C7051D8202D3CF300B0D122 /* Info.plist */,
+				6C5CB6A0202E86C800722B67 /* FlowerClassifier.mlmodel */,
 			);
 			path = FlowerPower;
 			sourceTree = "<group>";
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5CB6A1202E86C800722B67 /* FlowerClassifier.mlmodel in Sources */,
 				6C7051DF202D3D5700B0D122 /* CameraController.swift in Sources */,
 				6C7051CD202D3CF300B0D122 /* AppDelegate.swift in Sources */,
 			);
