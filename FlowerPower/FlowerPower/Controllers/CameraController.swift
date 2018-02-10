@@ -18,7 +18,8 @@ class CameraController: UIViewController {
     let wikipediaURL = "https://en.wikipedia.org/w/api.php"
     
     @IBOutlet weak var imageView: UIImageView!
-
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -70,7 +71,11 @@ class CameraController: UIViewController {
         
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
-                print(response)
+                let flowerJSON : JSON = JSON(response.result.value!)
+                let pageID = flowerJSON["query"]["pageids"][0].stringValue
+                let flowerDescription = flowerJSON["query"]["pages"][pageID]["extract"].stringValue
+                
+                self.descriptionLabel.text = flowerDescription
             }
         }
     }

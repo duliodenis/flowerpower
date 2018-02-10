@@ -5,9 +5,15 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Camera Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,15 +24,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYl-kX-csR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bYl-kX-csR" secondAttribute="height" multiplier="1:1" id="cFp-F1-Gxx"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sgP-cS-7hL">
+                                <rect key="frame" x="16" y="455" width="343" height="192"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bYl-kX-csR" secondAttribute="bottom" id="00d-22-r4F"/>
-                            <constraint firstItem="bYl-kX-csR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lb5-Y9-CfX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bYl-kX-csR" secondAttribute="trailing" id="Xcp-vm-4ai"/>
-                            <constraint firstItem="bYl-kX-csR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c7Z-Fc-BW6"/>
+                            <constraint firstItem="sgP-cS-7hL" firstAttribute="top" secondItem="bYl-kX-csR" secondAttribute="bottom" constant="16" id="12W-r2-g2e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sgP-cS-7hL" secondAttribute="bottom" constant="20" id="7ku-mG-S8L"/>
+                            <constraint firstItem="sgP-cS-7hL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CT6-JY-GtE"/>
+                            <constraint firstItem="bYl-kX-csR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QSt-UE-tfs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sgP-cS-7hL" secondAttribute="trailing" constant="16" id="j5j-cu-DDO"/>
+                            <constraint firstItem="bYl-kX-csR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="qKM-Oo-Y4s"/>
+                            <constraint firstItem="bYl-kX-csR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xHH-5T-4cu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,12 +56,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionLabel" destination="sgP-cS-7hL" id="78B-RT-Xd4"/>
                         <outlet property="imageView" destination="bYl-kX-csR" id="3tv-eB-jTF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="103"/>
+            <point key="canvasLocation" x="-186.40000000000001" y="102.99850074962519"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eDI-bj-fDt">
