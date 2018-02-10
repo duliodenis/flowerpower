@@ -62,12 +62,13 @@ class CameraController: UIViewController {
         let parameters : [String:String] = [
             "format" : "json",
             "action" : "query",
-            "prop" : "extracts",
+            "prop" : "extracts|pageimages",
             "exintro" : "",
             "explaintext" : "",
             "titles" : flowerName,
             "indexpageids" : "",
             "redirects" : "1",
+            "pithumbsize" : "500"
             ]
         
         Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
@@ -75,7 +76,9 @@ class CameraController: UIViewController {
                 let flowerJSON : JSON = JSON(response.result.value!)
                 let pageID = flowerJSON["query"]["pageids"][0].stringValue
                 let flowerDescription = flowerJSON["query"]["pages"][pageID]["extract"].stringValue
+                let flowerImageURL = flowerJSON["query"]["pages"][pageID]["thumbnail"]["source"].stringValue
                 
+                self.imageView.sd_setImage(with: URL(string: flowerImageURL))
                 self.descriptionLabel.text = flowerDescription
             }
         }
@@ -88,7 +91,6 @@ extension CameraController: UIImagePickerControllerDelegate, UINavigationControl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let userPickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.image = userPickedImage
             
             guard let ciImage = CIImage(image: userPickedImage) else {
                 // we could not convert the UIImage to a CIImage
