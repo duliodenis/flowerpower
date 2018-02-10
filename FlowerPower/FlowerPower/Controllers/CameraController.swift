@@ -9,9 +9,14 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class CameraController: UIViewController {
 
+    // base URL
+    let wikipediaURL = "https://en.wikipedia.org/w/api.php"
+    
     @IBOutlet weak var imageView: UIImageView!
 
     let imagePicker = UIImagePickerController()
@@ -39,6 +44,7 @@ class CameraController: UIViewController {
             }
             
             self.navigationItem.title = classification.identifier.capitalized
+            self.requestInfo(flowerName: classification.identifier)
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
@@ -48,6 +54,25 @@ class CameraController: UIViewController {
             print(error.localizedDescription)
         }
         
+    }
+    
+    func requestInfo(flowerName: String) {
+        let parameters : [String:String] = [
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flowerName,
+            "indexpageids" : "",
+            "redirects" : "1",
+            ]
+        
+        Alamofire.request(wikipediaURL, method: .get, parameters: parameters).responseJSON { (response) in
+            if response.result.isSuccess {
+                print(response)
+            }
+        }
     }
     
 }
